@@ -24,7 +24,7 @@ module.exports = (mode) => {
     entry: isDev ? [
       `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
       'webpack/hot/dev-server',
-      './src/'
+      './src/',
     ] : ['./src'],
     output: {
       filename: 'bundle.js',

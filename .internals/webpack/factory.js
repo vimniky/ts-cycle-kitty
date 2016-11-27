@@ -17,6 +17,10 @@ const prodPlugins = [
   new webpack.optimize.UglifyJsPlugin({minimize: true}),
 ]
 
+const tsRules = {
+  test: /\.ts$/,
+  loader: 'awesome-typescript-loader',
+}
 module.exports = (mode) => {
   const isDev = mode === 'development'
   const isProd = mode === 'production'
@@ -37,12 +41,9 @@ module.exports = (mode) => {
       extensions: ['.ts', '.js']
     },
     module: {
-      loaders: [
-        {
-          test: /\.ts$/,
-          loader: 'awesome-typescript-loader'
-        }
-      ]
+      rules: [
+        tsRules,
+      ],
     },
     devtool: 'source-map',
     plugins: [

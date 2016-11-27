@@ -17,7 +17,7 @@ const server = new WebpackDevServer(compiler, {
   historyApiFallback: true,
   hot: true,
   contentBase: './public',
-  stats: 'errors-only'
+  stats: 'errors-only',
 })
 
 server.listen(CLIENT_PORT)

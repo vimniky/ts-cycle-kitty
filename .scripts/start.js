@@ -18,13 +18,13 @@ var config = {
     path: '/'
   },
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['.ts', '.js']
   },
   module: {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript'
+        loader: 'awesome-typescript-loader'
       }
     ]
   },

@@ -10,11 +10,11 @@ dotenv.config()
 const { CLIENT_PORT, CLIENT_HOST } = process.env
 
 const devPlugins = [
-  new webpack.optimize.UglifyJsPlugin({minimize: true}),
+  new webpack.HotModuleReplacementPlugin(),
 ]
 
 const prodPlugins = [
-  new webpack.HotModuleReplacementPlugin(),
+  new webpack.optimize.UglifyJsPlugin({minimize: true}),
 ]
 
 module.exports = (mode) => {
@@ -25,10 +25,13 @@ module.exports = (mode) => {
       `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
       'webpack/hot/dev-server',
       './src/',
-    ] : ['./src'],
-    output: {
+    ] : ['./src/'],
+    output: isDev ? {
       filename: 'bundle.js',
-      path: '/'
+      path: '/',
+    } : {
+      filename: 'bundle.js',
+      path: './public/',
     },
     resolve: {
       extensions: ['.ts', '.js']

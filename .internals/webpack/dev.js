@@ -5,7 +5,7 @@ const WebpackDevServer = require('webpack-dev-server')
 const factory = require('./factory')
 
 const { CLIENT_PORT, CLIENT_HOST } = process.env
-const webpackConfig = factory('development')
+const webpackConfig = factory({ mode: 'development' })
 
 const compiler = webpack(webpackConfig)
 
@@ -16,7 +16,7 @@ compiler.plugin('done', function () {
 const server = new WebpackDevServer(compiler, {
   historyApiFallback: true,
   hot: true,
-  contentBase: './public',
+  contentBase: './build/client',
   stats: 'errors-only',
 })
 

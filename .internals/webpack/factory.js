@@ -1,10 +1,13 @@
 'use strict'
-var dotenv = require('dotenv')
-var webpack = require('webpack')
-var WebpackDevServer = require('webpack-dev-server')
-var ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
-var { ifElse } = require('./utils')
+const { join } = require('path')
+const dotenv = require('dotenv')
+const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const { ifElse } = require('./utils')
 
 dotenv.config()
 const { CLIENT_PORT, CLIENT_HOST } = process.env
@@ -19,26 +22,30 @@ const prodPlugins = [
 
 const tsRules = {
   test: /\.ts$/,
-  loader: 'awesome-typescript-loader',
+  loader: `awesome-typescript-loader`,
+  query: {
+    configFileName: './tsconfig.json'
+  }
 }
-module.exports = (mode) => {
+
+module.exports = ({ mode }) => {
   const isDev = mode === 'development'
   const isProd = mode === 'production'
   return {
     entry: isDev ? [
       `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
       'webpack/hot/dev-server',
-      './src/',
-    ] : ['./src/'],
+      './client/index.ts',
+    ] : ['./client/index.ts'],
     output: isDev ? {
       filename: 'bundle.js',
-      path: '/',
+      path: join(process.cwd(), 'build/client') ,
     } : {
       filename: 'bundle.js',
-      path: './public/',
+      path: join(process.cwd(), 'build/client') ,
     },
     resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.ts', '.js'],
     },
     module: {
       rules: [
@@ -48,6 +55,10 @@ module.exports = (mode) => {
     devtool: 'source-map',
     plugins: [
       new ProgressBarPlugin(),
+      new CopyWebpackPlugin([
+        { from : join(process.cwd(), 'client/assets/index.html') },
+        { from : join(process.cwd(), 'client/assets/favicon.ico') },
+      ]),
     ].concat(ifElse(isDev)(devPlugins, prodPlugins))
   }
 }

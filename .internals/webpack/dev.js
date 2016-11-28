@@ -10,7 +10,7 @@ const webpackConfig = factory({ mode: 'development' })
 
 const compiler = webpack(webpackConfig)
 
-compiler.plugin('done', function () {
+compiler.plugin('done', () => {
   console.log(`App is running at ${CLIENT_HOST}:${CLIENT_PORT}`)
 })
 

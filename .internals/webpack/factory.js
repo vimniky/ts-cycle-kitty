@@ -5,7 +5,6 @@ const dotenv = require('dotenv')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 dotenv.config()
@@ -31,10 +30,6 @@ const devPlugins = [
 
 const prodPlugins = [
   new webpack.optimize.UglifyJsPlugin({ minimize: true }),
-  new ExtractTextPlugin({
-    filename: '[name]-[contenthash:base62:8].css',
-    allChunks: true,
-  })
 ]
 
 const tsRules = {

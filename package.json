@@ -29,7 +29,8 @@
     "test": "node .internals/test.js",
     "clean:client": "rimraf build/client",
     "clean:server": "rimraf build/server",
-    "clean": "rimraf build"
+    "clean:test": "rimraf test",
+    "clean": "rimraf build & npm run clean:test"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",

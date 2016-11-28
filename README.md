@@ -25,7 +25,11 @@ Install dependency
 Start project in development mode
 
     npm start
-    
+
+Run tests
+
+    npm test
+
 Build project
 
     npm run build
@@ -33,4 +37,3 @@ Build project
 Clean project
 
     npm run clean
-

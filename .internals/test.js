@@ -1,18 +1,18 @@
 'use strict'
 
-var path = require('path')
-var spawn = require('cross-spawn')
+const path = require('path')
+const spawn = require('cross-spawn')
 // var chalk = require('chalk')
-var glob = require('glob')
+const glob = require('glob')
 
-var tsc = path.resolve(process.cwd(), 'node_modules', '.bin', 'tsc')
-var mocha = path.resolve(process.cwd(), 'node_modules', '.bin', 'mocha')
+const tsc = path.resolve(process.cwd(), 'node_modules', '.bin', 'tsc')
+const mocha = path.resolve(process.cwd(), 'node_modules', '.bin', 'mocha')
 
-var args = [
+const args = [
   '--colors',
   // !process.env.CI && (console.log(chalk.green.bold('Enabling watch mode')) || '--watch'),
   'test/**/*.test.js'
 ].filter(Boolean)
 
-spawn.sync(tsc, ['--outDir', 'test', glob.sync('src/**/*.test.ts')], {stdio: 'inherit'})
+spawn.sync(tsc, ['--outDir', 'test', glob.sync('client/**/*.test.ts')], { stdio: 'inherit' })
 spawn.sync(mocha, args, {stdio: 'inherit'})

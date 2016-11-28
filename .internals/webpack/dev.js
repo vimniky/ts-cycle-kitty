@@ -21,6 +21,7 @@ const server = new WebpackDevServer(compiler, {
   contentBase: [
     join(process.cwd(), 'build/client')
   ],
+  watchContentBase: true,
   stats: 'errors-only',
 })
 

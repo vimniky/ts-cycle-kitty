@@ -47,7 +47,7 @@ module.exports = ({ mode }) => {
   return {
     entry: isDev ? [
       `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
-      'webpack/hot/only-dev-server',
+      'webpack/hot/dev-server',
       entry,
     ] : [entry],
     output: isDev ? {

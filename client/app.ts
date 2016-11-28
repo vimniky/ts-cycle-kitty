@@ -22,7 +22,7 @@ export type Sinks = {
 export function App(sources: Sources): Sinks {
   const vtree$ = xs.of(
     div(styles.app, { style: { color: 'red' } }, [
-      'My Awesome CDE editor',
+      'Awesome CDE editor',
       img({ attrs: { src: './assets/avatar.png' } })
     ])
   )

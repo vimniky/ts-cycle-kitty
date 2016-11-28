@@ -9,9 +9,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const createCssRules = require('./createCssRules')
-const { ifElse } = require('./utils')
-
 dotenv.config()
 
 const ROOT = process.cwd()
@@ -20,6 +17,18 @@ const clientSrcPath = join(ROOT, 'client')
 const entry = join(ROOT, 'client/index.ts')
 
 const { CLIENT_PORT, CLIENT_HOST } = process.env
+
+const plugins = [
+  new ProgressBarPlugin(),
+  new CopyWebpackPlugin([
+    { from : join(ROOT, 'client/assets'), to: './assets' },
+  ]),
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template,
+  }),
+]
+
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
 ]
@@ -65,20 +74,9 @@ module.exports = ({ mode }) => {
     module: {
       rules: [
         tsRules,
-        createCssRules({ mode }),
       ],
     },
     devtool: 'source-map',
-    plugins: [
-      new ProgressBarPlugin(),
-      new CopyWebpackPlugin([
-        { from : join(ROOT, 'client/assets'), to: './assets' },
-      ]),
-      new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template,
-      }),
-    ].concat(ifElse(isDev)(devPlugins, prodPlugins))
+    plugins: plugins.concat(isDev ? devPlugins : prodPlugins)
   }
 }
-

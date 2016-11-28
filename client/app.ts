@@ -1,4 +1,4 @@
-import { VNode, div, img, br } from '@cycle/dom'
+import { VNode, div, img, h3 } from '@cycle/dom'
 import { DOMSource } from '@cycle/dom/xstream-typings'
 import xs, { Stream } from 'xstream'
 
@@ -12,22 +12,18 @@ export type Sinks = {
 
 const attrs = {
   style: {
-    width: '300px',
-    height: '300px',
-    margin: '20px auto',
-    'font-size': '20px',
+    color: 'red',
   }
 }
 
 export function App(sources: Sources): Sinks {
   const vtree$ = xs.of(
     div(
-      '.cde-app',
+      '.app',
       attrs,
       [
-        'Awesome typescript starter kit',
-        br(),
-        img({ attrs: { src: './assets/avatar.png' } })
+        h3('Awesome typescript starter kit'),
+        img({ attrs: { src: './assets/avatar.png' } }),
       ]
     )
   )

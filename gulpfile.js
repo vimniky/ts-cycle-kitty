@@ -8,7 +8,7 @@ const MODE = process.env.NODE_ENV || 'development'
 const isProd = MODE === 'production'
 
 const PATHS = {
-  sassSrc: './client/**/*.scss',
+  sassSrc: './client/app.scss',
   sassDest: './build/client',
   assetsSrc: [
     './client/*.html',

@@ -1,3 +1,10 @@
 .app {
-  border: 1px solid red;
+  justify-content: center;
+  h3 {
+    text-align: center;
+  }
+  img {
+    margin: 0 auto;
+    display: block;
+  }
 }

@@ -14,7 +14,7 @@ const { ifElse } = require('./utils')
 
 dotenv.config()
 
-const template = join(process.cwd(), 'client/assets/template.html')
+const template = join(process.cwd(), 'client/template.html')
 const { CLIENT_PORT, CLIENT_HOST } = process.env
 const ROOT = process.cwd()
 const devPlugins = [
@@ -66,7 +66,7 @@ module.exports = ({ mode }) => {
     plugins: [
       new ProgressBarPlugin(),
       new CopyWebpackPlugin([
-        { from : join(ROOT, 'client/assets/favicon.ico') },
+        { from : join(ROOT, 'client/assets'), to: './assets' },
       ]),
       new HtmlWebpackPlugin({
         filename: 'index.html',

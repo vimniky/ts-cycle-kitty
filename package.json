@@ -1,13 +1,35 @@
 {
   "name": "ts-cycle-kitty",
   "version": "0.1.0",
-  "private": true,
+  "description": "A minimal Typescript + Webpack + Cycle starter kit",
   "dependencies": {
     "@cycle/dom": "14.1.0",
     "@cycle/xstream-run": "3.1.0",
     "dotenv": "^2.0.0",
     "lodash": "^4.17.2",
     "xstream": "8.0.0"
+  },
+  "keywords": [
+    "cycle js",
+    "typescript",
+    "webpack",
+    "mocha",
+    "gulp",
+    "express"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vimniky/ts-cycle-kitty"
+  },
+  "author": "vimniky",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development gulp watch & node .internals/webpack/dev.js",
+    "build": "cross-env NODE_ENV=production gulp build & node .internals/webpack/build.js",
+    "test": "node .internals/test.js",
+    "clean:client": "rimraf build/client",
+    "clean:server": "rimraf build/server",
+    "clean": "rimraf build"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
@@ -16,27 +38,27 @@
     "awesome-typescript-loader": "^3.0.0-beta.9",
     "chalk": "^1.1.3",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^3.1.3",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.26.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "fs-extra": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
     "html-webpack-plugin": "^2.24.1",
     "mkdirp": "^0.5.1",
     "mocha": "^3.1.2",
     "node-sass": "^3.13.0",
     "postcss": "^5.2.6",
     "progress-bar-webpack-plugin": "^1.9.0",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "tslint": "^4.0.2",
     "typescript": "2.0.10",
     "webpack": "2.1.0-beta.27",
     "webpack-dev-server": "2.1.0-beta.12"
-  },
-  "scripts": {
-    "start": "node .internals/webpack/dev.js",
-    "test": "node .internals/test.js",
-    "build": "node .internals/webpack/build.js"
   }
 }

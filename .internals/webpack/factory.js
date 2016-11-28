@@ -5,7 +5,6 @@ const dotenv = require('dotenv')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -20,9 +19,6 @@ const { CLIENT_PORT, CLIENT_HOST } = process.env
 
 const plugins = [
   new ProgressBarPlugin(),
-  new CopyWebpackPlugin([
-    { from : join(ROOT, 'client/assets'), to: './assets' },
-  ]),
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template,

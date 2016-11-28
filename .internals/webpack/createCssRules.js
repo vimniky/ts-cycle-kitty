@@ -36,7 +36,7 @@ module.exports = function createCssRules({ mode }) {
 
   return {
     test: /\.scss$|\.css$/,
-    include: [join(process.cwd(), 'src')],
+    include: [join(process.cwd(), 'client')],
     loaders: isDev ? devLoaders : prodLoaders,
   }
 }

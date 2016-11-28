@@ -16,7 +16,7 @@ dotenv.config()
 
 const template = join(process.cwd(), 'client/assets/template.html')
 const { CLIENT_PORT, CLIENT_HOST } = process.env
-
+const ROOT = process.cwd()
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
 ]
@@ -32,11 +32,11 @@ const prodPlugins = [
 const tsRules = {
   test: /\.ts$/,
   loader: `awesome-typescript-loader`,
+  exclude: /node_modules/,
   query: {
     configFileName: './tsconfig.json',
   }
 }
-
 module.exports = ({ mode }) => {
   const isDev = mode === 'development'
   const isProd = mode === 'production'
@@ -48,10 +48,10 @@ module.exports = ({ mode }) => {
     ] : ['./client/index.ts'],
     output: isDev ? {
       filename: 'bundle.js',
-      path: join(process.cwd(), 'build/client') ,
+      path: join(ROOT, 'build/client') ,
     } : {
-      filename: 'bundle.js',
-      path: join(process.cwd(), 'build/client') ,
+      filename: 'bundle-[hash].js',
+      path: join(ROOT, 'build/client') ,
     },
     resolve: {
       extensions: ['.ts', '.js'],
@@ -66,7 +66,7 @@ module.exports = ({ mode }) => {
     plugins: [
       new ProgressBarPlugin(),
       new CopyWebpackPlugin([
-        { from : join(process.cwd(), 'client/assets/favicon.ico') },
+        { from : join(ROOT, 'client/assets/favicon.ico') },
       ]),
       new HtmlWebpackPlugin({
         filename: 'index.html',

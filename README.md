@@ -7,6 +7,7 @@ A minimalistic boilerplate, . It uses the following technologies:
  - webpack@2
  - Node@7
  - Express@4
+ - Mocha
  - Gulp
 
 ## Getting started

@@ -1,4 +1,4 @@
-import { VNode, div, img, h3 } from '@cycle/dom'
+import { VNode, div, img, h1 } from '@cycle/dom'
 import { DOMSource } from '@cycle/dom/xstream-typings'
 import xs, { Stream } from 'xstream'
 
@@ -12,7 +12,9 @@ export type Sinks = {
 
 const attrs = {
   style: {
-    color: 'red',
+    'text-shadow': '2px 2px 2px red',
+    'text-align': 'center',
+    color: '#efefef',
   }
 }
 
@@ -22,7 +24,7 @@ export function App(sources: Sources): Sinks {
       '.app',
       attrs,
       [
-        h3('Awesome typescript starter kit'),
+        h1('Let\'s get kitty ^_^#~ !'),
         img({ attrs: { src: './assets/avatar.png' } }),
       ]
     )

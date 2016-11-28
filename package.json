@@ -1,7 +1,7 @@
 {
   "name": "ts-cycle-kitty",
   "version": "0.1.0",
-  "description": "A minimal Typescript + Webpack + Cycle starter kit",
+  "description": "A minimalistic Cyclejs + Typescript + Webpack starter kit",
   "dependencies": {
     "@cycle/dom": "14.1.0",
     "@cycle/xstream-run": "3.1.0",

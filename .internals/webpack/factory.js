@@ -7,11 +7,14 @@ const WebpackDevServer = require('webpack-dev-server')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const createCssRules = require('./createCssRules')
 const { ifElse } = require('./utils')
 
 dotenv.config()
+
+const template = join(process.cwd(), 'client/assets/template.html')
 const { CLIENT_PORT, CLIENT_HOST } = process.env
 
 const devPlugins = [
@@ -30,7 +33,7 @@ const tsRules = {
   test: /\.ts$/,
   loader: `awesome-typescript-loader`,
   query: {
-    configFileName: './tsconfig.json'
+    configFileName: './tsconfig.json',
   }
 }
 
@@ -56,16 +59,19 @@ module.exports = ({ mode }) => {
     module: {
       rules: [
         tsRules,
-        createCssRules({ mode })
+        createCssRules({ mode }),
       ],
     },
     devtool: 'source-map',
     plugins: [
       new ProgressBarPlugin(),
       new CopyWebpackPlugin([
-        { from : join(process.cwd(), 'client/assets/index.html') },
         { from : join(process.cwd(), 'client/assets/favicon.ico') },
       ]),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template,
+      }),
     ].concat(ifElse(isDev)(devPlugins, prodPlugins))
   }
 }

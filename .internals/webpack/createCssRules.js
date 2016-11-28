@@ -1,6 +1,6 @@
 const { join } = require('path')
-
-function createCssRules({ mode }) {
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+module.exports = function createCssRules({ mode }) {
   const isDev = mode === 'development'
   const isProd = !isDev
 
@@ -34,11 +34,9 @@ function createCssRules({ mode }) {
     ],
   })
 
-  const rules = [
-    {
-      test: /\.css$|\.scss$/,
-      include: [join(process.cwd(), 'src')],
-    },
+  return {
+    test: /\.scss$|\.css$/,
+    include: [join(process.cwd(), 'src')],
     loaders: isDev ? devLoaders : prodLoaders,
-  ]
+  }
 }

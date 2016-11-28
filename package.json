@@ -2,6 +2,13 @@
   "name": "cde-flow",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "@cycle/dom": "14.1.0",
+    "@cycle/xstream-run": "3.1.0",
+    "dotenv": "^2.0.0",
+    "lodash": "^4.17.2",
+    "xstream": "8.0.0"
+  },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
     "@types/mocha": "^2.2.32",
@@ -26,13 +33,6 @@
     "typescript": "^2.0.3",
     "webpack": "2.1.0-beta.27",
     "webpack-dev-server": "^1.16.2"
-  },
-  "dependencies": {
-    "@cycle/dom": "14.1.0",
-    "@cycle/xstream-run": "3.1.0",
-    "dotenv": "^2.0.0",
-    "lodash": "^4.17.2",
-    "xstream": "8.0.0"
   },
   "scripts": {
     "start": "node .internals/webpack/dev.js",

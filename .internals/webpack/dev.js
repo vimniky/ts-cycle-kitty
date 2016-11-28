@@ -1,5 +1,6 @@
 'use strict'
 
+const { join } = require('path')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const factory = require('./factory')
@@ -16,7 +17,10 @@ compiler.plugin('done', function () {
 const server = new WebpackDevServer(compiler, {
   historyApiFallback: true,
   hot: true,
-  contentBase: './build/client',
+  inline: true,
+  contentBase: [
+    join(process.cwd(), 'build/client')
+  ],
   stats: 'errors-only',
 })
 

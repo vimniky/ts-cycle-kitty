@@ -14,9 +14,12 @@ const { ifElse } = require('./utils')
 
 dotenv.config()
 
-const template = join(process.cwd(), 'client/template.html')
-const { CLIENT_PORT, CLIENT_HOST } = process.env
 const ROOT = process.cwd()
+const template = join(ROOT, 'client/template.html')
+const clientSrcPath = join(ROOT, 'client')
+const entry = join(ROOT, 'client/index.ts')
+
+const { CLIENT_PORT, CLIENT_HOST } = process.env
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
 ]
@@ -32,20 +35,21 @@ const prodPlugins = [
 const tsRules = {
   test: /\.ts$/,
   loader: `awesome-typescript-loader`,
-  exclude: /node_modules/,
+  include: clientSrcPath,
   query: {
     configFileName: './tsconfig.json',
   }
 }
+
 module.exports = ({ mode }) => {
   const isDev = mode === 'development'
   const isProd = mode === 'production'
   return {
     entry: isDev ? [
       `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
-      'webpack/hot/dev-server',
-      './client/index.ts',
-    ] : ['./client/index.ts'],
+      'webpack/hot/only-dev-server',
+      entry,
+    ] : [entry],
     output: isDev ? {
       filename: 'bundle.js',
       path: join(ROOT, 'build/client') ,
@@ -53,7 +57,9 @@ module.exports = ({ mode }) => {
       filename: 'bundle-[hash].js',
       path: join(ROOT, 'build/client') ,
     },
+    target: 'web',
     resolve: {
+      modules: ['node_modules'],
       extensions: ['.ts', '.js'],
     },
     module: {

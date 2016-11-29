@@ -18,7 +18,7 @@ const PATHS = {
   assetsDest: './build/client',
 }
 
-gulp.task('sass', () => (
+gulp.task('sass:build', () => (
   gulp.src(PATHS.sassSrc)
       .pipe(sourcemaps.init())
       .pipe(sass(isProd ? {} : { outputStyle: 'compressed' }).on('error', sass.logError))
@@ -35,6 +35,6 @@ gulp.task('copy', () => (
       .pipe(gulp.dest(PATHS.assetsDest))
 ))
 
-gulp.task('watch', ['copy', 'sass', 'sass:watch'])
-gulp.task('build', ['copy', 'sass'])
+gulp.task('dev', ['copy', 'sass:build', 'sass:watch'])
+gulp.task('build', ['copy', 'sass:build'])
 

@@ -24,5 +24,4 @@ const server = new WebpackDevServer(compiler, {
   watchContentBase: true,
   stats: 'errors-only',
 })
-
 server.listen(CLIENT_PORT)

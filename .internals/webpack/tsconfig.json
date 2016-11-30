@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
+    "module": "commonjs",
+    "target": "es5",
     "outDir": "build/lib",
     "removeComments": false,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["dom", "es6", "es7"]
+    "lib": ["dom", "es6"]
   },
   "formatCodeOptions": {
     "indentSize": 2,

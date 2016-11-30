@@ -1,4 +1,4 @@
-import { VNode, div, img, h1 } from '@cycle/dom'
+import { VNode, div, img, h1, i } from '@cycle/dom'
 import { DOMSource } from '@cycle/dom/xstream-typings'
 import xs, { Stream } from 'xstream'
 
@@ -25,6 +25,7 @@ export function App(sources: Sources): Sinks {
       attrs,
       [
         h1('Let\'s get kitty ^_^#~ !'),
+        i('.fa.fa-snowflake-o'),
         img({ attrs: { src: './assets/avatar.png' } }),
       ],
     ),

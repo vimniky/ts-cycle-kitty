@@ -37,8 +37,8 @@ const tsRules = {
   loader: `awesome-typescript-loader`,
   include: clientSrcPath,
   query: {
-    configFileName: './tsconfig.json',
-  }
+    configFileName: './tsconfig.json'
+  },
 }
 
 module.exports = ({ mode }) => {

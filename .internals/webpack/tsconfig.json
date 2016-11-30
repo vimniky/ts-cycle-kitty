@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "target": "es6",
     "outDir": "lib/",
     "removeComments": false,
@@ -8,8 +8,10 @@
     "sourceMap": true,
     "declaration": true,
     "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["dom", "es6"]
+    "lib": ["dom", "es6", "es7"]
   },
   "formatCodeOptions": {
     "indentSize": 2,

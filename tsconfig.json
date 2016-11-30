@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
-    "outDir": "build/lib",
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "build/server",
     "removeComments": false,
+    "moduleResolution": "node",
     "preserveConstEnums": true,
     "sourceMap": true,
     "declaration": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "lib": ["dom", "es6", "es7"]
+    "suppressImplicitAnyIndexErrors": true
   },
   "formatCodeOptions": {
     "indentSize": 2,
     "tabSize": 2
   },
   "files": [
-    "client/index.ts"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-  }
+    "server/index.ts"
+  ]
 }

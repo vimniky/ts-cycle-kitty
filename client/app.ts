@@ -3,11 +3,11 @@ import { DOMSource } from '@cycle/dom/xstream-typings'
 import xs, { Stream } from 'xstream'
 
 export type Sources = {
-  DOM: DOMSource
+  DOM: DOMSource,
 }
 
 export type Sinks = {
-  DOM: Stream<VNode>
+  DOM: Stream<VNode>,
 }
 
 const attrs = {
@@ -15,7 +15,7 @@ const attrs = {
     'text-shadow': '2px 2px 2px red',
     'text-align': 'center',
     color: '#efefef',
-  }
+  },
 }
 
 export function App(sources: Sources): Sinks {
@@ -26,11 +26,11 @@ export function App(sources: Sources): Sinks {
       [
         h1('Let\'s get kitty ^_^#~ !'),
         img({ attrs: { src: './assets/avatar.png' } }),
-      ]
-    )
+      ],
+    ),
   )
   const sinks = {
-    DOM: vtree$
+    DOM: vtree$,
   }
   return sinks
 }

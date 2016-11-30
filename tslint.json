@@ -16,7 +16,6 @@
     "no-bitwise": true,
     "one-line": [true, "check-open-brace", "check-whitespace"],
     "new-parens": true,
-    "no-for-in-array": true,
     "no-construct": true,
     "no-unused-expression": true,
     "quotemark": [true, "single"],
@@ -29,7 +28,6 @@
     "switch-default": true,
     "triple-equals": true,
     "use-isnan": true,
-    "no-unused-variable": true,
     "radix": true,
     "typedef-whitespace": [
       true,
@@ -41,8 +39,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "variable-name": [true, "ban-keywords"
-    ],
+    "variable-name": [true, "ban-keywords"],
     "whitespace": [
       true,
       "check-branch",

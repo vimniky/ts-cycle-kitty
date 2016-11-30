@@ -6,12 +6,15 @@
     "removeComments": false,
     "moduleResolution": "node",
     "preserveConstEnums": true,
-    "sourceMap": true,
-    "declaration": true,
+    "sourceMap": false,
+    "declaration": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "types": [
+
+    ]
   },
   "formatCodeOptions": {
     "indentSize": 2,
@@ -21,3 +24,4 @@
     "server/index.ts"
   ]
 }
+

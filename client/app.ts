@@ -24,8 +24,10 @@ export function App(sources: Sources): Sinks {
       '.app',
       attrs,
       [
-        h1('Let\'s get kitty ^_^#~ !'),
-        i('.fa.fa-snowflake-o'),
+        h1([
+          'Let\'s get kitty ',
+          i('.fa.fa-snowflake-o'),
+        ]),
         img({ attrs: { src: './assets/avatar.png' } }),
       ],
     ),

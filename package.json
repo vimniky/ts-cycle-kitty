@@ -19,8 +19,8 @@
   "scripts": {
     "start": "npm run client & npm run server",
     "client": "cross-env NODE_ENV=development gulp dev & node .internals/webpack/dev.js",
-    "build": "cross-env NODE_ENV=production gulp server:dev & node .internals/webpack/build.js",
     "server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/index.ts",
+    "build": "cross-env NODE_ENV=production gulp build & node .internals/webpack/build.js",
     "build:server": "tsc",
     "test": "cross-env NODE_ENV=development node .internals/test.js",
     "clean:client": "rimraf build/client",

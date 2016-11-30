@@ -5,7 +5,7 @@
     "outDir": "build/lib",
     "removeComments": false,
     "preserveConstEnums": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -19,7 +19,5 @@
   },
   "files": [
     "client/index.ts"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-  }
+  ]
 }

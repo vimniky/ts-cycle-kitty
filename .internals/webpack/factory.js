@@ -6,7 +6,7 @@ const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 dotenv.config()
 
 const ROOT = process.cwd()
@@ -15,7 +15,7 @@ const clientSrcPath = join(ROOT, 'client')
 const entry = join(ROOT, 'client/index.ts')
 
 const { CLIENT_PORT, CLIENT_HOST } = process.env
-
+const url = `${CLIENT_HOST}:${CLIENT_PORT}`
 const plugins = [
   new ProgressBarPlugin(),
   new HtmlWebpackPlugin({
@@ -26,6 +26,7 @@ const plugins = [
 
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
+  new OpenBrowserPlugin({ url }),
 ]
 
 const prodPlugins = [
@@ -34,7 +35,7 @@ const prodPlugins = [
 
 const tsRules = {
   test: /\.ts$/,
-  loader: `awesome-typescript-loader`,
+  loader: 'ts-loader',
   include: clientSrcPath,
   query: {
     configFileName: './tsconfig.json'
@@ -46,7 +47,7 @@ module.exports = ({ mode }) => {
   const isProd = mode === 'production'
   return {
     entry: isDev ? [
-      `webpack-dev-server/client?${CLIENT_HOST}:${CLIENT_PORT}`,
+      `webpack-dev-server/client?${url}`,
       'webpack/hot/dev-server',
       entry,
     ] : [entry],

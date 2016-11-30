@@ -23,6 +23,10 @@ Install dependency
     
     npm install
 
+Start both both & watch for change(see below)
+
+    npm run start
+
 Start client App & watch for change
 
     npm run client
@@ -31,10 +35,6 @@ Start server(exprss) App & watch for change
 
     npm run server
 
-Start both both & watch for change
-
-    npm run start
-
 Run tests
 
     npm test
@@ -42,6 +42,10 @@ Run tests
 Build project
 
     npm run build
+
+Lint project
+
+    npm run lint
 
 Clean project
 

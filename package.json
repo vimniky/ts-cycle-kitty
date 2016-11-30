@@ -17,17 +17,20 @@
   "author": "vimniky",
   "license": "MIT",
   "scripts": {
-    "start": "npm run client & npm run server",
+    "start": "run-p client server",
     "client": "cross-env NODE_ENV=development gulp dev & node .internals/webpack/dev.js",
     "server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/index.ts",
-    "build": "cross-env NODE_ENV=production gulp build & node .internals/webpack/build.js",
+    "build": "run-s clean build:client build:server",
+    "build:client": "cross-env NODE_ENV=production gulp build & node .internals/webpack/build.js",
     "build:server": "tsc",
     "test": "cross-env NODE_ENV=development node .internals/test.js",
+    "lint": "run-p lint:server lint:client",
+    "lint:client": "tslint client/**/*.ts",
+    "lint:server": "tslint server/**/*.ts",
+    "clean": "run-p clean:client clean:server clean:test",
     "clean:client": "rimraf build/client",
     "clean:server": "rimraf build/server",
-    "lint:js": "tslint client/**/*.ts",
-    "clean:test": "rimraf test",
-    "clean": "rimraf build & npm run clean:test"
+    "clean:test": "rimraf test"
   },
   "dependencies": {
     "@cycle/dom": "14.1.0",
@@ -55,6 +58,7 @@
     "mocha": "^3.1.2",
     "node-sass": "^3.13.0",
     "nodemon": "^1.11.0",
+    "npm-run-all": "^3.1.1",
     "open-browser-webpack-plugin": "^0.0.3",
     "progress-bar-webpack-plugin": "^1.9.0",
     "rimraf": "^2.5.4",

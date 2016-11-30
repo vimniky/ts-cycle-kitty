@@ -23,9 +23,17 @@ Install dependency
     
     npm install
 
-Start project in development mode
+Start client App & watch for change
 
-    npm start
+    npm run client
+
+Start server(exprss) App & watch for change
+
+    npm run server
+
+Start both both & watch for change
+
+    npm run start
 
 Run tests
 

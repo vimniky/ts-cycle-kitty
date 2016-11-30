@@ -11,11 +11,9 @@ const PATHS = {
   sassSrc: './client/app.scss',
   sassDest: './build/client',
   assetsSrc: [
-    './client/*.html',
-    './client/*.ico',
-    './client/**/*.png',
+    './client/assets/**/*',
   ],
-  assetsDest: './build/client',
+  assetsDest: './build/client/assets',
 }
 
 gulp.task('sass:build', () => (

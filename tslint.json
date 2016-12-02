@@ -2,6 +2,8 @@
   "jsRules": {
   },
   "rules": {
+    "curly": false,
+    "class-name": true,
     "class-name": true,
     "comment-format": [true, "check-space"],
     "object-literal-sort-keys": false,
@@ -23,7 +25,6 @@
     "triple-equals": [true, "allow-null-check"],
     "one-variable-per-declaration": [true, "ignore-for-loop"],
     "object-literal-key-quotes": [true, "as-needed"],
-    "interface-name": true,
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "switch-default": true,
     "triple-equals": true,

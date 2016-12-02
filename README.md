@@ -1,6 +1,6 @@
 # Cyclejs + Typescript Boilerplate
 
-A minimalistic boilerplate, . It uses the following technologies:
+A Cyclejs + Typescript + Webpack starter kit. It uses the following technologies:
 
  - Cyclejs
  - Typescript@2
@@ -16,8 +16,8 @@ You need to have NodeJS v6/v7 installed on your machine, please refer to [NodeJs
 
 Clone & cd
 
-    git clone git@github.com:vimniky/ts-cycle-kit.git
-    cd ts-express-kit
+    git clone git@github.com:seedyee/ts-cycle-kit.git
+    cd ts-cycle-kit
 
 Install dependency
     

@@ -14,5 +14,5 @@ const args = [
   'test/**/*.test.js'
 ].filter(Boolean)
 
-spawn.sync(tsc, ['--outDir', 'test', glob.sync('client/**/*.test.ts')], { stdio: 'inherit' })
+spawn.sync(tsc, ['--outDir', 'test/client', glob.sync('client/**/*.test.ts')], { stdio: 'inherit' })
 spawn.sync(mocha, args, {stdio: 'inherit'})

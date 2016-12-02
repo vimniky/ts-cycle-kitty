@@ -25,7 +25,7 @@ gulp.task('sass:build', () => (
 ))
 
 gulp.task('sass:watch', () => {
-  gulp.watch(PATHS.sassSrc, ['sass'])
+  gulp.watch(PATHS.sassSrc, ['sass:build'])
 })
 
 gulp.task('copy', () => (

@@ -12,15 +12,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/vimniky/ts-cycle-kitty"
+    "url": "git://github.com/seedyee/ts-cycle-kitty"
   },
-  "author": "vimniky",
+  "author": "seedyee",
   "license": "MIT",
   "scripts": {
     "start": "run-p client server",
     "client": "cross-env NODE_ENV=development gulp dev & node .internals/webpack/dev.js",
     "server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/index.ts",
     "build": "run-s clean build:client build:server",
+    "mocha": "mocha client/**/*.ts server/**/*.ts --require ts-node/register",
     "build:client": "cross-env NODE_ENV=production gulp build & node .internals/webpack/build.js",
     "build:server": "tsc",
     "test": "cross-env NODE_ENV=development node .internals/test.js",
@@ -34,6 +35,8 @@
   },
   "dependencies": {
     "@cycle/dom": "14.1.0",
+    "@cycle/http": "^11.2.0",
+    "@cycle/isolate": "^1.4.0",
     "@cycle/xstream-run": "3.1.0",
     "lodash": "^4.17.2",
     "xstream": "8.0.0"

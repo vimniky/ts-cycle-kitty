@@ -19,7 +19,7 @@ const PATHS = {
 gulp.task('sass:build', () => (
   gulp.src(PATHS.sassSrc)
       .pipe(sourcemaps.init())
-      .pipe(sass(isProd ? {} : { outputStyle: 'compressed' }).on('error', sass.logError))
+      .pipe(sass(isProd ? { outputStyle: 'compressed' } : {}).on('error', sass.logError))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(PATHS.sassDest))
 ))

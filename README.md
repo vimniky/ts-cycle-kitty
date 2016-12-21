@@ -16,7 +16,7 @@ You need to have NodeJS v6/v7 installed on your machine, please refer to [NodeJs
 
 Clone & cd
 
-    git clone git@github.com:seedyee/ts-cycle-kit.git
+    git clone git@github.com:vimniky/ts-cycle-kit.git
     cd ts-cycle-kit
 
 Install dependency
@@ -50,3 +50,7 @@ Lint project
 Clean project
 
     npm run clean
+
+## Troubleshooting:
+
+    If you have problem with node-sass please run `npm rebuild node-sass`.

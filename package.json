@@ -12,9 +12,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/seedyee/ts-cycle-kitty"
+    "url": "git://github.com/vimniky/ts-cycle-kitty"
   },
-  "author": "seedyee",
+  "author": "vimniky",
   "license": "MIT",
   "scripts": {
     "start": "run-p client server",
